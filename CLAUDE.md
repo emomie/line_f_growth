@@ -7,6 +7,7 @@ Claude.ai側の対話（プロジェクト「タロチャグロース戦略話�
 1. `docs/growth_brief.md` — 進め方の骨組み（①健康診断 → ②プレモータム → ③成長条件 → ④打ち手）と①の診断結果
 2. `docs/2026-09-28_mandalart_and_actions.md` — 2026-09-28時点のマンダラチャート、③の状態、打ち手10個、Now/Next/Later、決まったことのログ
 3. `docs/2026-09-28_db_findings.md` — Nowの集計結果と、1・2の記述の訂正（決済はKOMOJU、A群47人の意味など）。1・2はClaude.aiのartifactの写しなので、訂正は正本側にも反映が要る
+4. `docs/2026-09-29_findings.md` — PMFの確認（コホート定着）、課金者の支払額と共食い試算、サブスクの経緯と国内外の事例、31日パスの検証設計（line_f#67）。末尾に正本側で判断が要ること
 
 ## 2026-09-28時点の前提（変わったらここを更新）
 - 成長方針は脱依存。user59は顧客定義から外す。売上の判定は「user59以外」で行う
@@ -27,7 +28,7 @@ Claude.ai側の対話（プロジェクト「タロチャグロース戦略話�
 - [x] ~~Stripe~~ KOMOJUで決済の途中離脱を出す → 手段選択まで進んだA群は2人。決済手段が理由の可能性はほぼ無い
 - [x] A群の残高ゼロ時メッセージ → 本文はDBに無い（[line_f#64](https://github.com/emomie/line_f/issues/64)）。回数と日数は集計済み
 - [x] 新規の1日10回超を週次で出すクエリ → `node scripts/weekly_watch.mjs`
-- [x] タロヒキにイベント実装 → 2026-09-28本番反映（[oneoracle#2](https://github.com/emomie/oneoracle/issues/2)）。Meta側のカスタムコンバージョン作成が残り
+- [x] タロヒキにイベント実装 → 2026-09-28本番反映（[oneoracle#2](https://github.com/emomie/oneoracle/issues/2)）。2026-09-29 カスタムコンバージョン「タロヒキLINE押下」作成、広告アカウントで選択可を確認。残りはLead最適化キャンペーンの公開（予算未決）
 
 ## 起票済みのissue（実装は各リポで）
 - [oneoracle#2](https://github.com/emomie/oneoracle/issues/2) Metaピクセル導入・友だち追加URLへの変更（反映済み、残りはチェックリスト）
@@ -35,6 +36,7 @@ Claude.ai側の対話（プロジェクト「タロチャグロース戦略話�
 - [line_f#64](https://github.com/emomie/line_f/issues/64) 残高0のときに届いたメッセージをDBに保存
 - [line_f#65](https://github.com/emomie/line_f/issues/65) ブロック（unfollow）の日時をDBに記録
 - [line_f#66](https://github.com/emomie/line_f/issues/66) 課金メニューのボタン押下を記録
+- [line_f#67](https://github.com/emomie/line_f/issues/67) 31日パス（¥480・2回・自動更新なし）の検証。#66が前提。11/1と12/1で判定（2人以上で見込みあり）
 
 ## 用語
 - user279型: 出来事の夜に¥1,280パックを買い、1日5回で止まる健全なリピーター
